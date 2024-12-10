@@ -6,6 +6,14 @@ sources:
     schema: stripe
     tables:
       - name: tb_payment #This is the name that you will use in the stg model
+        columns:
+          - name: id
+            tests:
+              - not_null
+              - unique
+          - name: amount
+            tests:
+              - not_null
         identifier: payment #Add a identifier to see the diference that is to the name variable.
         loaded_at_field: _batched_at
         freshness: 
