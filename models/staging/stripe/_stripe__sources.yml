@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: stripe
+    database: dbt-tutorial
+    schema: stripe
+    tables:
+      - name: tb_payment #This is the name that you will use in the stg model
+        identifier: payment #Add a identifier to see the diference that is to the name variable.
+        loaded_at_field: _batched_at
+        freshness: 
+          error_after:
+            count: 2
+            period: day
+          warn_after:
+            count: 1
+            period: day
+        

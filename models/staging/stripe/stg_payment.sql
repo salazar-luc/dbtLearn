@@ -6,4 +6,4 @@ select
     ,s_p.paymentmethod as payment_method
     ,(s_p.amount / 100) as payment_amount
 from
-    `dbt-tutorial`.stripe.payment as s_p
+    {{ source('stripe', 'tb_payment') }} as s_p
