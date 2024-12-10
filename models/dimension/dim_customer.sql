@@ -21,8 +21,8 @@ with cte_customer_orders as (
 
 select
     stg_c.customer_id
-    ,stg_c.first_name
-    ,stg_c.last_name
+    ,stg_c.customer_first_name
+    ,stg_c.customer_last_name
     ,cte_co.first_order_date
     ,cte_co.most_recent_order_date
     ,coalesce(cte_co.number_of_orders, 0) as number_of_orders
